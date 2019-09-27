@@ -6,12 +6,15 @@ class PagesController extends AppController
 {
     public function index()
     {
-        debug($this);
-        die;
         $pages = $this->Pages->find()->all();
         debug($pages);
         exit;
+    }
 
+    public function view($id = 1)
+    {
+        debug('Visualizando: ' . $id);
+        exit;
     }
 }
 

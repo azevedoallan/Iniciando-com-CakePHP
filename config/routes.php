@@ -17,6 +17,7 @@
  * @link          https://cakephp.org CakePHP(tm) Project
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
+
 use Cake\Http\Middleware\CsrfProtectionMiddleware;
 use Cake\Routing\RouteBuilder;
 use Cake\Routing\Router;
@@ -57,10 +58,16 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->applyMiddleware('csrf');
 
-    $routes->connect('/paginas', [
+    /*
+    $routes->connect('/paginas/*', [
         'controller' => 'Pages',
-        'action' => 'index'
+        'action' => 'view'
     ]);
+
+    $routes->connect('/:action/*', [
+        'controller' => 'Pages',
+    ]);
+    */
 
 
     $routes->fallbacks(DashedRoute::class);
