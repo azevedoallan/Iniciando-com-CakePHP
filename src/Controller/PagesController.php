@@ -6,9 +6,8 @@ class PagesController extends AppController
 {
     public function index()
     {
-        $pages = $this->Pages->find()->all();
-        debug($pages);
-        exit;
+        $results = $this->Pages->find()->all();
+        $this->set('pages', $results);
     }
 
     public function view($id = 1)
