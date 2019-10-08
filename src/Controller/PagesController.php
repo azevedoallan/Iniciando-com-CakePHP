@@ -15,6 +15,13 @@ class PagesController extends AppController
         debug('Visualizando: ' . $id);
         exit;
     }
+
+    public function add()
+    {
+        $page = $this->Pages->newEntity();
+        $this->Flash->warning('Avisooooooooooooo');
+        $this->set('pagina', $page);
+    }
 }
 
 
