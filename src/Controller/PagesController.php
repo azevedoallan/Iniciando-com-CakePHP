@@ -19,7 +19,15 @@ class PagesController extends AppController
     public function add()
     {
         $page = $this->Pages->newEntity();
-        $this->Flash->warning('Avisooooooooooooo');
+        if ($this->request->is('post')) {
+            $page = $this->Pages->patchEntity($page, $this->request->getData());
+            if ($this->Pages->Save($page)) {
+                $this->Flash->sucess('Salvo com Sucesso');
+            return $this->redirect(['Controller' => 'Pages', 'action' => 'index']);
+            }
+            $this->Flash->warning('falhou ao salvar, verifique os campos');
+        }
+
         $this->set('pagina', $page);
     }
 }
