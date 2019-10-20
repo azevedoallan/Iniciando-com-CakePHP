@@ -22,6 +22,7 @@
                 <td><?php echo $page->url; ?></td>
                 <td>
                     <?php echo $this->Html->link('ver', '/pages/view/' . $page->id); ?>
+                    <?php echo $this->Html->link('edit', ['action' =>'edit', $page->id]); ?>
                 </td>
 
             </tr>

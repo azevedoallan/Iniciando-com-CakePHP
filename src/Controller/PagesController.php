@@ -26,8 +26,23 @@ class PagesController extends AppController
         if ($this->request->is('post')) {
             $page = $this->Pages->patchEntity($page, $this->request->getData());
             if ($this->Pages->Save($page)) {
-                $this->Flash->sucess('Salvo com Sucesso');
+                $this->Flash->warning('Salvo com Sucesso');
             return $this->redirect(['Controller' => 'Pages', 'action' => 'index']);
+            }
+            $this->Flash->warning('falhou ao salvar, verifique os campos');
+        }
+
+        $this->set('pagina', $page);
+    }
+
+    public function edit($id)
+    {
+        $page = $this->Pages->get($id);
+        if ($this->request->is(['post', 'put', 'patch'])) {
+            $page = $this->Pages->patchEntity($page, $this->request->getData());
+            if ($this->Pages->Save($page)) {
+                $this->Flash->warning('Salvo com Sucesso');
+                return $this->redirect(['Controller' => 'Pages', 'action' => 'index']);
             }
             $this->Flash->warning('falhou ao salvar, verifique os campos');
         }
