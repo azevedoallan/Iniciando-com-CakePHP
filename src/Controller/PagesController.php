@@ -10,10 +10,14 @@ class PagesController extends AppController
         $this->set('pages', $results);
     }
 
-    public function view($id = 1)
+    /**
+     * @param int $id
+     */
+    public function view($id)
     {
-        debug('Visualizando: ' . $id);
-        exit;
+        $page = $this->Pages->get($id);
+        $this->set('page', $page);
+
     }
 
     public function add()

@@ -20,7 +20,10 @@
             <tr>
                 <td><?php echo $page->title; ?></td>
                 <td><?php echo $page->url; ?></td>
-                <td></td>
+                <td>
+                    <?php echo $this->Html->link('ver', '/pages/view/' . $page->id); ?>
+                </td>
+
             </tr>
             <?php endforeach; ?>
         </tbody>
