@@ -6,7 +6,10 @@ class PagesController extends AppController
 {
     public function index()
     {
-        $results = $this->Pages->find()->all();
+        $this->paginate = [
+            'limit' => 1
+        ];
+        $results = $this->paginate($this->Pages);
         $this->set('pages', $results);
     }
 
