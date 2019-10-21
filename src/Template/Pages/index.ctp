@@ -23,6 +23,7 @@
                 <td>
                     <?php echo $this->Html->link('ver', '/pages/view/' . $page->id); ?>
                     <?php echo $this->Html->link('edit', ['action' =>'edit', $page->id]); ?>
+                    <?php echo $this->Form->postLink('Remover', ['action' => 'delete', $page->id], ['confirm' => 'Você tem certeza que quer remover ' . $page->title . '?']); ?>
                 </td>
 
             </tr>

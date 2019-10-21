@@ -49,6 +49,16 @@ class PagesController extends AppController
 
         $this->set('pagina', $page);
     }
+
+    public function delete($id)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+        $page = $this->Pages->get($id);
+        $this->Pages->delete($page);
+        $this->Flash->warning('Removido com Sucesso');
+        return $this->redirect(['action' => 'index']);
+
+    }
 }
 
 
