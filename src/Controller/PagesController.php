@@ -2,8 +2,16 @@
 
 namespace App\Controller;
 
+use Cake\Event\Event;
+use foo\bar;
+
 class PagesController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow(['index', 'view']);
+    }
+
     public function index()
     {
         $this->paginate = [
